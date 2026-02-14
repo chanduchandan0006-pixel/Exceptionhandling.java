@@ -37,3 +37,32 @@ class Exception3 {
         System.out.println("Program continues after handling the exception.");
     }
 }
+
+class Exception4{
+    public static void main(String[]args){
+        String str="abc";
+        try{
+            int num=Integer.parseInt(str);
+            System.out.println(num);
+        }
+        catch(NumberFormatException e){
+            System.out.println("Cannot convert string"+e.getMessage());
+        }
+        System.out.println("Program continous after handling the exception");
+    }
+}
+
+class Exception5{
+     public static void main(String[]args){
+        try{
+            int result=10/0;
+        }
+        catch(ArithmeticException e){
+            System.out.println("Caught an airthmetic exception:"+e.getMessage());
+        }
+        finally{
+            System.out.println("This block will always execute:");
+        }
+        System.out.println("Program continous after handling the exception:");
+     }
+} 
