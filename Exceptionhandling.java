@@ -1,68 +1,128 @@
-class Exceptionalhandling {
+class Exeption{
     public static void main(String[] args) {
-        int a = 10;
-        int b = 0;
-        try{
+        int a=10;
+        int b=0;
+        try {
             System.out.println(a/b);
+        } catch (Exception e) {
+            System.out.println("Cannot divide by zero"+e.getMessage());
         }
-        catch(ArithmeticException e){
-            System.out.println(" Division by zero is not allowed.");
-        }
-        System.out.println("Program continues after handling the exception.");
+        System.out.println("Program is running successfully");
     }
 }
 
-class Exception2 {
+class Exeption1{
     public static void main(String[] args) {
-    String str = null;
-    try {
-        System.out.println(str.length());
-    } catch (NullPointerException e) {
-        System.out.println("Error: Attempted to access a method on a null object.");
-    }
-
-    System.out.println("Program continues after handling the exception.");
+        String s= null ;
+        try {
+            System.out.println(s.length());
+        } catch (Exception e) {
+            System.out.println("Null pointer exception"+e.getMessage());
+        }
+        System.out.println("Program is running successfully");
     }
 }
 
-class Exception3 {
+
+class Exeption2{
     public static void main(String[] args) {
-        int[] arr = new int[5];
+        int[] arr=new int[5];
         try {
             System.out.println(arr[10]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error: Attempted to access an index that is out of bounds.");
+        } catch (Exception e) {
+            System.out.println("Array index out of bound exception"+e.getMessage());
         }
-
-        System.out.println("Program continues after handling the exception.");
+        System.out.println("Program is running successfully");
     }
 }
 
-class Exception4{
-    public static void main(String[]args){
-        String str="abc";
-        try{
-            int num=Integer.parseInt(str);
+
+class Exeption3{
+    public static void main(String[] args) {
+        String s="Hello";
+        try {
+            int num = Integer.parseInt(s);
             System.out.println(num);
+        } catch (Exception e) {
+            System.out.println("cannot convert string to integer"+e.getMessage());
         }
-        catch(NumberFormatException e){
-            System.out.println("Cannot convert string"+e.getMessage());
-        }
-        System.out.println("Program continous after handling the exception");
+        System.out.println("Program is running successfully");
     }
 }
 
-class Exception5{
-     public static void main(String[]args){
-        try{
-            int result=10/0;
+class Exeption4{
+    public static void main(String[] args) {
+        int a=10;
+        int b=0;
+        try {
+            System.out.println(a/b);
+        } catch (Exception e) {
+            System.out.println("Cannot divide by zero"+e.getMessage());
         }
-        catch(ArithmeticException e){
-            System.out.println("Caught an airthmetic exception:"+e.getMessage());
+        finally {
+            System.out.println("finally block is always executed");
         }
-        finally{
-            System.out.println("This block will always execute:");
+        System.out.println("Program is running successfully");
+    }
+}
+
+class Exeption5{
+    public static void main(String[] args) {
+        int a = -1;
+        if (a<0) {
+            throw new IllegalArgumentException("Value cannot be negative");
         }
-        System.out.println("Program continous after handling the exception:");
-     }
-} 
+        System.out.println("Value is :"+a );
+    }
+}
+
+
+class Exeption6{
+    public static void main(String[] args) {
+        try {
+            
+            methodThatThrowsException();
+        } catch (Exception e) {
+           System.out.println("Caught an exception"+e.getMessage());
+        }
+    }
+
+    public static void methodThatThrowsException() throws Exception {
+        throw new Exception("This is a custom exception message");
+    }
+}
+
+class Exeption7{
+    public static void main(String[] args) {
+        try {
+
+            validateAge(10);
+            
+        } catch (Exception e) {
+            System.out.println("Caught an exception"+e.getMessage());
+        }
+    }
+
+    public static void validateAge(int age) {
+        if (age<18) {
+            throw new IllegalArgumentException("You are not eligible for voting");
+        }
+        System.out.println("You are eligible for voting");
+    }
+}
+
+class Exception8 extends Exception {
+    public Exception8(String message) {
+        super(message);
+    }
+}
+ 
+class Exeption9{
+    public static void main(String[] args) {
+        try {
+            throw new Exception8("This is a custom exception");
+        } catch (Exception8 e) {
+            System.out.println("Caught an exception"+e.getMessage());
+        }
+    }
+}
